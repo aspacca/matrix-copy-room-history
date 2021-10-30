@@ -1,0 +1,31 @@
+{
+  "name": "matrix-encrypted2decrypted",
+  "version": "1.0.0",
+  "description": "Migrate an encrypted Room history Element export to an unencrypted Room on a Matrix server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrea Spacca",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "matrix-appservice-bridge": "^2.6.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspacca/matrix-encrypted2decrypted.git"
+  },
+  "keywords": [
+    "e2e",
+    "matrix",
+    "migration",
+    "matrix-synapse",
+    "im",
+    "social"
+  ],
+  "bugs": {
+    "url": "https://github.com/aspacca/matrix-encrypted2decrypted/issues"
+  },
+  "homepage": "https://github.com/aspacca/matrix-encrypted2decrypted#readme"
+}
