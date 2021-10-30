@@ -114,17 +114,21 @@ new Cli({
               return;
             }
 
-            if (!msg.hasOwnProperty('content')) {
-              return;
-            }
-
-            let content = msg.content;
-
             if (!msg.hasOwnProperty('room_id')) {
               return;
             }
 
             let originalRoomId = msg.room_id;
+
+            if (!ROOMS.hasOwnProperty(originalRoomId)) {
+              return;
+            }
+
+            if (!msg.hasOwnProperty('content')) {
+              return;
+            }
+
+            let content = msg.content;
 
             if (!msg.hasOwnProperty('sender')) {
               return;
@@ -139,27 +143,16 @@ new Cli({
             let originalEventId = msg.event_id;
 
 
-            if (msg.content.hasOwnProperty("m.relates.to") &&
-              msg.content["m.relates.to"].hasOwnProperty("m.in_reply_to") &&
-              msg.content["m.relates.to"]["m.in_reply_to"].hasOwnProperty("event_id")) {
+            if (content.hasOwnProperty("m.relates.to") &&
+              content["m.relates.to"].hasOwnProperty("m.in_reply_to") &&
+              content["m.relates.to"]["m.in_reply_to"].hasOwnProperty("event_id")) {
 
-              let oldEventID = msg.content["m.relates.to"]["m.in_reply_to"]["event_id"];
+              let oldEventID = content["m.relates.to"]["m.in_reply_to"]["event_id"];
               if (mappedEvents.hasOwnProperty(oldEventID)) {
                 let newEventID = mappedEvents[oldEventID];
 
-                msg.content["m.relates.to"]["m.in_reply_to"]["event_id"] = newEventID;
+                content["m.relates.to"]["m.in_reply_to"]["event_id"] = newEventID;
               }
-            }
-
-            if (msg.content.hasOwnProperty("msgtype") && msg.content.msgtype == "m.image") {
-              msg.content.deleteProperty("file")
-              if (msg.content.hasOwnProperty("info") && msg.content.info.hasOwnProperty("thumbnail_file")) {
-                msg.content.info.deleteProperty("thumbnail_file")
-              }
-            }
-
-            if (!ROOMS.hasOwnProperty(originalRoomId)) {
-              return;
             }
 
             // content.body = unescapeHTML(content.body);
@@ -168,7 +161,7 @@ new Cli({
 
             let intent = bridge.getIntent(userID);
             await console.log(msg.age, roomID, userID, jsonFile, content);
-            let reponse = await intent.sendEvent(roomID, "m.room.message", msg.content);
+            let reponse = await intent.sendEvent(roomID, "m.room.message", content);
 
             mappedEvents[originalEventId] = reponse.event_id;
 
