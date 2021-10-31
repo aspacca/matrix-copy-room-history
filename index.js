@@ -135,14 +135,14 @@ new Cli({
 
           let roomID = ROOMS[originalRoomId];
 
-          if (!isInvited.hasOwnProperty(userID)) {
+          if (!isInvited.hasOwnProperty(userID) && userID !== INVITER) {
             await ownerIntent.invite(roomID, userID);
             isInvited[userID] = true;
           }
 
           let intent = bridge.getIntent(userID);
 
-          if (!hasJoined.hasOwnProperty(userID)) {
+          if (!hasJoined.hasOwnProperty(userID) && userID !== INVITER) {
             await intent.join(roomID);
             hasJoined[userID] = true;
           }
