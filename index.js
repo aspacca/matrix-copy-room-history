@@ -91,7 +91,7 @@ new Cli({
             return;
           }
 
-          let rawdata = fs.readFileSync(jsonFile);
+          let rawdata = fs.readFileSync(ELEMENT_EXPORT_FOLDER + '/' + jsonFile);
           let jsonContent = JSON.parse(rawdata);
           if (!jsonContent.hasOwnProperty('messages')) {
             return;
