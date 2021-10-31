@@ -59,7 +59,7 @@ if (undefined === DOMAIN || undefined === ELEMENT_EXPORT_FOLDER || undefined ===
 }
 
 new Cli({
-  registrationPath: "matrix-encrypted2decrypted-registration.yaml",
+  registrationPath: "matrix-copy-history-registration.yaml",
   generateRegistration: function(reg, callback) {
     reg.setId(AppServiceRegistration.generateToken());
     reg.setHomeserverToken(AppServiceRegistration.generateToken());
@@ -71,7 +71,7 @@ new Cli({
     bridge = new Bridge({
       homeserverUrl: HOMESERVER_URL,
       domain: DOMAIN,
-      registration: "matrix-encrypted2decrypted-registration.yaml",
+      registration: "matrix-copy-history-registration.yaml",
 
       controller: {
         onUserQuery: function(queriedUser) {

@@ -1,7 +1,7 @@
 {
-  "name": "matrix-encrypted2decrypted",
+  "name": "matrix-copy-history",
   "version": "1.0.0",
-  "description": "Migrate an encrypted Room history Element export to an unencrypted Room on a Matrix server",
+  "description": "Copy a Room history Element export to an another Room on a Matrix server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aspacca/matrix-encrypted2decrypted.git"
+    "url": "git+https://github.com/aspacca/matrix-copy-history.git"
   },
   "keywords": [
     "e2e",
@@ -25,7 +25,7 @@
     "social"
   ],
   "bugs": {
-    "url": "https://github.com/aspacca/matrix-encrypted2decrypted/issues"
+    "url": "https://github.com/aspacca/matrix-copy-history/issues"
   },
-  "homepage": "https://github.com/aspacca/matrix-encrypted2decrypted#readme"
+  "homepage": "https://github.com/aspacca/matrix-copy-history#readme"
 }
