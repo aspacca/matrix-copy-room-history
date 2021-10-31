@@ -65,6 +65,8 @@ new Cli({
     reg.setHomeserverToken(AppServiceRegistration.generateToken());
     reg.setAppServiceToken(AppServiceRegistration.generateToken());
     reg.setSenderLocalpart("matrix-copy");
+    reg.addRegexPattern("users", "@.*", false);
+    reg.addRegexPattern("rooms", "!.*", false);
     callback(reg);
   },
   run: function(port, config) {
@@ -128,7 +130,7 @@ new Cli({
               return;
             }
 
-            if (msg.content === {}) {
+            if (!msg.content.hasOwnProperty('body')) {
               return;
             }
 
@@ -162,12 +164,12 @@ new Cli({
             // content.body = unescapeHTML(content.body);
 
             let roomID = ROOMS[originalRoomId];
-
-            let intent = bridge.getIntent(userID);
+            let localPart = userID.substring(1).split(':')[0];
+            let intent = bridge.getIntentFromLocalpart(localPart);
             await console.log(msg.origin_server_ts, roomID, userID, jsonFile, content);
-            let reponse = await intent.sendEvent(roomID, "m.room.message", content);
+            let response = await intent.sendEvent(roomID, "m.room.message", content);
 
-            mappedEvents[originalEventId] = reponse.event_id;
+            mappedEvents[originalEventId] = response.event_id;
 
           });
         });
