@@ -50,7 +50,7 @@ function unescapeHTML(str) {
 let bridge;
 
 const DOMAIN = process.env.DOMAIN;
-const ELEMENT_EXPORT_FOLDER = process.env.IMPORT_FOLDER;
+const ELEMENT_EXPORT_FOLDER = process.env.ELEMENT_EXPORT_FOLDER;
 const HOMESERVER_URL = process.env.HOMESERVER_URL;
 
 if (undefined === DOMAIN || undefined === ELEMENT_EXPORT_FOLDER || undefined === HOMESERVER_URL) {
