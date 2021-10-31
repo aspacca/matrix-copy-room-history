@@ -27,7 +27,7 @@ The scrip setup a CLI via the `Cli` class, which will dump the registration file
 `matrix-copy-room-history-registration.yaml`. It will register the user ID `@matrix-copy:domain` and ask
 for exclusive rights (so no one else can create them) to the namespace of every users. It also generates two tokens which will be used for authentication.
 
-Now type `DOMAIN=localhost HOMSEVER_URL=http://localhost:9000 node index.js -r -u "http://localhost:9000"` (`HOMSERVER_URL` and the last url param are the same URL that the
+Now type `DOMAIN=localhost HOMSERVER_URL=http://localhost:9000 node index.js -r -u "http://localhost:9000"` (`HOMSERVER_URL` and the last url param are the same URL that the
 homeserver will try to use to communicate with the application service, `DOMAIN` is the DOMAIN of the homserver) and a file
 `matrix-copy-room-history-registration.yaml` will be produced. In your Synapse install, edit
 `homeserver.yaml` to include this file:
@@ -56,7 +56,7 @@ The values in the json are the IDs on the new Room to copy to.
 ```
 
 # Run the import
-Run the app service with `DOMAIN=localhost HOMSEVER_URL=http://localhost:9000 IMPORT_FOLDER=/tmp/ELEMENT-EXPORT-HISTORY node index.js -p 9000` and wait until the last message is print to console and imported on matrix.
+Run the app service with `DOMAIN=localhost HOMSERVER_URL=http://localhost:9000 ELEMENT_EXPORT_FOLDER=/tmp/ELEMENT-EXPORT-HISTORY node index.js -p 9000` and wait until the last message is print to console and imported on matrix.
 Once it's done you can exit with CTRL+C
 
 
