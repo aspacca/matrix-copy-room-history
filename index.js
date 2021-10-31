@@ -164,8 +164,8 @@ new Cli({
             // content.body = unescapeHTML(content.body);
 
             let roomID = ROOMS[originalRoomId];
-            let localPart = userID.substring(1).split(':')[0];
-            let intent = bridge.getIntentFromLocalpart(localPart);
+
+            let intent = bridge.getIntent(userID);
             await console.log(msg.origin_server_ts, roomID, userID, jsonFile, content);
             let response = await intent.sendEvent(roomID, "m.room.message", content);
 
