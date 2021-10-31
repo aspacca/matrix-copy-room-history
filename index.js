@@ -128,6 +128,10 @@ new Cli({
               return;
             }
 
+            if (msg.content === {}) {
+              return;
+            }
+
             let content = msg.content;
 
             if (!msg.hasOwnProperty('sender')) {
@@ -160,7 +164,7 @@ new Cli({
             let roomID = ROOMS[originalRoomId];
 
             let intent = bridge.getIntent(userID);
-            await console.log(msg.age, roomID, userID, jsonFile, content);
+            await console.log(msg.origin_server_ts, roomID, userID, jsonFile, content);
             let reponse = await intent.sendEvent(roomID, "m.room.message", content);
 
             mappedEvents[originalEventId] = reponse.event_id;
