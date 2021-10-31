@@ -98,10 +98,10 @@ new Cli({
           }
 
           let messages = jsonContent.messages.sort(function(a,b) {
-            if (a.hasOwnProperty('age') && b.hasOwnProperty('age')) {
-              if (a['age'] > b['age']) {
+            if (a.hasOwnProperty('origin_server_ts') && b.hasOwnProperty('origin_server_ts')) {
+              if (a['origin_server_ts'] > b['origin_server_ts']) {
                 return 1;
-              } else if (a['age'] < b['age']) {
+              } else if (a['origin_server_ts'] < b['origin_server_ts']) {
                 return -1;
               }
             }
