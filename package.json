@@ -9,7 +9,7 @@
   "author": "Andrea Spacca",
   "license": "Apache-2.0",
   "dependencies": {
-    "matrix-appservice-bridge": "^2.6.0"
+    "matrix-appservice-bridge": "^3.1.0"
   },
   "devDependencies": {},
   "repository": {
