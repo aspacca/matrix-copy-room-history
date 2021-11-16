@@ -133,6 +133,16 @@ new Cli({
             }
           }
 
+          // Certain old versions of Element used to submit videos with non-int duration.
+          // Example `body.info.duration`: `15933.333333333334`.
+          // Synapse is now more strict when it comes to validating event data,
+          // so trying to import a float duration value would fail.
+          if (content.hasOwnProperty('info')) {
+            if (content.info.hasOwnProperty('duration')) {
+              content.info.duration = Math.round(content.info.duration);
+            }
+          }
+
           let roomID = ROOMS[originalRoomId];
 
           if (!isInvited.hasOwnProperty(userID) && userID !== INVITER) {
