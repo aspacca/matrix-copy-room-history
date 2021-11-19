@@ -22,7 +22,7 @@ const ELEMENT_EXPORT_FOLDER = process.env.ELEMENT_EXPORT_FOLDER;
 const HOMESERVER_URL = process.env.HOMESERVER_URL;
 
 if (undefined === INVITER || undefined === DOMAIN || undefined === ELEMENT_EXPORT_FOLDER || undefined === HOMESERVER_URL) {
-  console.log("Please define all ENV variables (DOMAIN, ELEMENT_EXPORT_FOLDER, HOMESERVER_URL)");
+  console.log("Please define all ENV variables (INVITER, DOMAIN, ELEMENT_EXPORT_FOLDER, HOMESERVER_URL)");
   process.exit(255);
 }
 
